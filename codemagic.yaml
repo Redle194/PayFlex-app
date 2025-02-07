@@ -1,0 +1,25 @@
+workflows:
+  android-workflow:
+    name: Android Build
+    environment:
+      flutter: stable
+      android_signing:
+        - keystore_reference
+    scripts:
+      - name: Configurar SDK do Android
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+      - name: Gerar APK/AAB
+        script: |
+          ./gradlew bundleRelease  # Para criar o arquivo .aab
+          # ./gradlew assembleRelease  # Para criar o arquivo .apk
+    artifacts:
+      - android/app/build/outputs/**/*.aab
+      - android/app/build/outputs/**/*.apk
+    publishing:
+      email:
+        recipients:
+          - seuemail@example.com
+        notify:
+          success: true
+          failure: false
