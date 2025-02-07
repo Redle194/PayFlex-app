@@ -1,8 +1,11 @@
 workflows:
   build:
+    name: "Payflex"
     environment:
-      android_signing:
-        - "Payflex Application"
+      groups:
+        - android-signing
+        - firebase-config
+        - api-keys
     scripts:
       - name: "Configure Android SDK"
         script: |
@@ -23,4 +26,3 @@ workflows:
         notify:
           success: true
           failure: false
-
