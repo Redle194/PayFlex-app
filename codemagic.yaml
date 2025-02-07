@@ -1,25 +1,26 @@
 workflows:
-  android-workflow:
-    name: PayFlex
+  build:
     environment:
-      flutter: stable
-     android_signing:
-  - Payflex-app
+      android_signing:
+        - "Payflex Application"
     scripts:
-      - name: Configurar SDK do Android
+      - name: "Configure Android SDK"
         script: |
           echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
-      - name: Gerar APK/AAB
+      - name: "Generate APK/AAB"
         script: |
-          ./gradlew bundleRelease  # Para criar o arquivo .aab
-          # ./gradlew assembleRelease  # Para criar o arquivo .apk
+          ./gradlew bundleRelease  # To create the .aab file
+          # ./gradlew assembleRelease  # To create the .apk file
+
     artifacts:
-      - android/app/build/outputs/**/*.aab
-      - android/app/build/outputs/**/*.apk
+      - "android/app/build/outputs/**/*.aab"
+      - "android/app/build/outputs/**/*.apk"
+
     publishing:
       email:
         recipients:
-          - seuemail@example.com
+          - "elderrodrigues49@gmail.com"
         notify:
           success: true
           failure: false
+
