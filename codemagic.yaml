@@ -14,11 +14,9 @@ workflows:
         script: |
           ./gradlew bundleRelease  # To create the .aab file
           # ./gradlew assembleRelease  # To create the .apk file
-
     artifacts:
       - "android/app/build/outputs/**/*.aab"
       - "android/app/build/outputs/**/*.apk"
-
     publishing:
       email:
         recipients:
