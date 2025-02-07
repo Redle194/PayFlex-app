@@ -1,10 +1,10 @@
 workflows:
   android-workflow:
-    name: Android Build
+    name: PayFlex
     environment:
       flutter: stable
-      android_signing:
-        - keystore_reference
+     android_signing:
+  - SEU_NOME_DO_KEYSTORE
     scripts:
       - name: Configurar SDK do Android
         script: |
