@@ -4,7 +4,7 @@ workflows:
     environment:
       flutter: stable
      android_signing:
-  - SEU_NOME_DO_KEYSTORE
+  - Payflex-app
     scripts:
       - name: Configurar SDK do Android
         script: |
